@@ -82,8 +82,8 @@ app.get('/', (req, res) => {
 const startServer = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
-    app.listen(3000, () => {
-      console.log('Server is running on port 3000');
+    app.listen(5000, () => {
+      console.log('Server is running on port 5000');
     });
   } catch (err) {
     console.error('Error starting server:', err);
