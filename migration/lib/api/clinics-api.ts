@@ -1,5 +1,5 @@
-import api, { RequestOptions } from "./api";
-import { Clinic } from "../types/clinic"; 
+import api, { RequestOptions } from "../api";
+import { Clinic } from "../../types/clinic"; 
 
 const normalizeClinic = (clinic: Record<string, unknown>): Clinic => {
   const get = (key: string) => clinic[key];

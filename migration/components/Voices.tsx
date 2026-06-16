@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Clock, ArrowRight, FileText, PlayCircle } from "lucide-react";
-import { fetchResources, type Resource } from "@/lib/resources";
+import { fetchResources, type Resource } from "@/lib/api/resources";
 
 const CONTENT_TYPE_LABELS: Record<string, string> = {
   article: "Article",
