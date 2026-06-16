@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Search, MapPin } from 'lucide-react';
 import type { Map as LeafletMap, LayerGroup } from 'leaflet';
-import { fetchClinics, submitClinicReview } from '@/lib/clinics-api'; 
+import { fetchClinics, submitClinicReview } from '@/lib/api/clinics-api'; 
 import SuggestDrawer from '@/components/SuggestDrawer';
 import ClinicCard from '@/components/clinic/ClinicCard';
 import FilterSidebar, { FilterState } from '@/components/clinic/FilterSidebar';
