@@ -265,6 +265,7 @@ export const FIELD_DEFS: Record<string, FieldDef> = {
     type: "select",
     required: true,
     options: [
+      { value: "", label: "Choose type…" },
       { value: "clinic", label: "Clinic" },
       { value: "therapist", label: "Therapist" },
       { value: "psychiatrist", label: "Psychiatrist" },
@@ -378,7 +379,7 @@ const RESOURCE_TYPE_SPECIFIC_FIELDS: Record<string, string[]> = {
 
 const ALL_RESOURCE_TYPE_SPECIFIC_FIELDS = Object.values(RESOURCE_TYPE_SPECIFIC_FIELDS).flat();
 
-export function getNormalizedResourceType(data: ContentFormData): string {
+export function getNormalizedResourceType(data: Record<string, unknown>): string {
   const raw = String(data.content_type || "").trim().toLowerCase();
   if (!raw) return "article";
   if (raw === "audio" || raw === "podcast" || raw === "video") return "media";
@@ -560,7 +561,7 @@ export function mapContentStatusToNgoStatus(status: ContentStatus | string | und
 export function toEditorFormData(type: ContentDestination, raw: Record<string, unknown>): ContentFormData {
   if (type === "resource") {
     const r = raw as unknown as AdminResourceRaw;
-    const selectedType = getNormalizedResourceType({ content_type: r.content_type } as ContentFormData);
+    const selectedType = getNormalizedResourceType({ content_type: r.content_type });
     const structured = r.structured_content ?? null;
     const articleBody = String(r.content || r.summary || "").trim();
 
